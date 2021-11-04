@@ -222,7 +222,7 @@ describe("Battle", () => {
                 milly.party[0]
             );
 
-            notVeryEffective.fight();
+            notVeryEffective.fightOnce();
 
             expect(milly.party[0].health).toBe(263);
         });
@@ -256,7 +256,7 @@ describe("Battle", () => {
                 milly.party[0]
             );
 
-            superEffective.fight();
+            superEffective.fightOnce();
 
             expect(milly.party[0].health).toBe(56);
         });
@@ -290,9 +290,43 @@ describe("Battle", () => {
                 milly.party[0]
             );
 
-            normal.fight();
+            normal.fightOnce();
 
             expect(milly.party[0].health).toBe(30);
+        });
+
+        test("When the defending pokemon's health is < 0, the pokemon faints.", () => {
+            const owen = new Trainer("Owen");
+            const milly = new Trainer("Milly");
+            const bulbasaur = new Pokemon(
+                "Ivysaur",
+                160,
+                55,
+                "Ivy..saur!",
+                "Vine Whip",
+                "grass"
+            );
+            const poliwag = new Pokemon(
+                "Poliwag",
+                60,
+                35,
+                "Poli!",
+                "Water gun",
+                "water"
+            );
+            owen.catch(bulbasaur);
+            milly.catch(poliwag);
+
+            const faintBattle = new Battle(
+                owen,
+                milly,
+                owen.party[0],
+                milly.party[0]
+            );
+
+            expect(faintBattle.fightOnce()).toBe(
+                `${faintBattle.trainerOne.name} and ${faintBattle.pokemonOne.name} win!`
+            );
         });
     });
 });

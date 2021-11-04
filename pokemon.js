@@ -106,7 +106,7 @@ function Battle(trainerOne, trainerTwo, pokemonOne, pokemonTwo) {
     this.pokemonTwo = pokemonTwo;
 }
 
-Battle.prototype.fight = function () {
+Battle.prototype.fightOnce = function () {
     const superEffective = this.pokemonOne.strengths.includes(
         this.pokemonTwo.type
     );
@@ -121,6 +121,12 @@ Battle.prototype.fight = function () {
         this.pokemonTwo.health -= Math.ceil(this.pokemonOne.damage * 0.75);
     } else {
         this.pokemonTwo.health -= this.pokemonOne.damage;
+    }
+
+    if (this.pokemonOne.health <= 0) {
+        return `${this.trainerTwo.name} and ${this.pokemonTwo.name} win!`;
+    } else if (this.pokemonTwo.health <= 0) {
+        return `${this.trainerOne.name} and ${this.pokemonOne.name} win!`;
     }
 };
 
