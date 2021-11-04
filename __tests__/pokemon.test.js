@@ -96,8 +96,13 @@ describe("Trainer", () => {
         expect(owen.party).toEqual([]);
     });
 
-    test("Created with pokemon count property.", () => {
+    test("Created with pokemonCount property.", () => {
         const owen = new Trainer("Owen");
         expect(owen.pokemonCount).toEqual(0);
+    });
+
+    test("Created with maxPartySize property.", () => {
+        const owen = new Trainer("Owen");
+        expect(owen.maxPartySize).toEqual(6);
     });
 });

@@ -42,6 +42,7 @@ function Trainer(name) {
     this.name = name;
     this.party = [];
     this.pokemonCount = 0;
+    this.maxPartySize = 6;
 }
 
 module.exports = { Pokemon, Trainer };
