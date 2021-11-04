@@ -128,4 +128,11 @@ describe("Battle", () => {
         const newBattle = new Battle();
         expect(newBattle).toBeInstanceOf(Battle);
     });
+
+    test("Created with trainerOne property.", () => {
+        const owen = new Trainer("Owen");
+
+        const newBattle = new Battle(owen);
+        expect(newBattle.trainerOne).toBe(owen);
+    });
 });
