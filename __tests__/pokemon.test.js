@@ -25,5 +25,16 @@ describe("Pokemon", () => {
             const newPokemon = new Pokemon("Bulbasaur", 80, 35, "bulba");
             expect(newPokemon.sound).toBe("bulba");
         });
+
+        test("Created with move property.", () => {
+            const newPokemon = new Pokemon(
+                "Bulbasaur",
+                80,
+                35,
+                "bulba",
+                "Vine Whip"
+            );
+            expect(newPokemon.move).toBe("Vine Whip");
+        });
     });
 });
