@@ -1,3 +1,4 @@
+//-------------------------POKEMON-------------------------\\
 function Pokemon(name, health, damage, sound, move, type = "normal") {
     this.name = name;
     this.health = health;
@@ -35,4 +36,8 @@ const types = {
     fairy: { strengths: ["fighting", "dragon", "dark"] },
 };
 
-module.exports = { Pokemon };
+//-------------------------TRAINER-------------------------\\
+
+function Trainer() {}
+
+module.exports = { Pokemon, Trainer };
