@@ -10,5 +10,10 @@ describe("Pokemon", () => {
             const newPokemon = new Pokemon("Bulbasaur");
             expect(newPokemon.name).toBe("Bulbasaur");
         });
+
+        test("Created with health property.", () => {
+            const newPokemon = new Pokemon("Bulbasaur", 80);
+            expect(newPokemon.health).toBe(80);
+        });
     });
 });
