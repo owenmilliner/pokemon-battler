@@ -191,4 +191,108 @@ describe("Battle", () => {
         );
         expect(newBattle.pokemonTwo).toBe(milly.party[0]);
     });
+
+    describe("Type Effectiveness", () => {
+        test("When the pokemon attacking is weak against the enemy, perform a 'not-very-effective' attack.", () => {
+            const owen = new Trainer("Owen");
+            const milly = new Trainer("Milly");
+            const bulbasaur = new Pokemon(
+                "Bulbasaur",
+                80,
+                35,
+                "bulba",
+                "Vine Whip",
+                "grass"
+            );
+            const altaria = new Pokemon(
+                "Altaria",
+                290,
+                85,
+                "Altaria!",
+                "Sky Attack",
+                "flying"
+            );
+            owen.catch(bulbasaur);
+            milly.catch(altaria);
+
+            const notVeryEffective = new Battle(
+                owen,
+                milly,
+                owen.party[0],
+                milly.party[0]
+            );
+
+            notVeryEffective.fight();
+
+            expect(milly.party[0].health).toBe(263);
+        });
+
+        test("When the pokemon attacking is strong against the enemy, perform a 'super-effective' attack.", () => {
+            const owen = new Trainer("Owen");
+            const milly = new Trainer("Milly");
+            const bulbasaur = new Pokemon(
+                "Bulbasaur",
+                80,
+                35,
+                "bulba",
+                "Vine Whip",
+                "grass"
+            );
+            const squirtle = new Pokemon(
+                "Squirtle",
+                100,
+                30,
+                "Squirt Squirt",
+                "Bubble Beam",
+                "water"
+            );
+            owen.catch(bulbasaur);
+            milly.catch(squirtle);
+
+            const superEffective = new Battle(
+                owen,
+                milly,
+                owen.party[0],
+                milly.party[0]
+            );
+
+            superEffective.fight();
+
+            expect(milly.party[0].health).toBe(56);
+        });
+
+        test("When the pokemon attacking is neutral against the enemy, perform a 'normal' attack.", () => {
+            const owen = new Trainer("Owen");
+            const milly = new Trainer("Milly");
+            const bulbasaur = new Pokemon(
+                "Bulbasaur",
+                80,
+                35,
+                "bulba",
+                "Vine Whip",
+                "grass"
+            );
+            const eevee = new Pokemon(
+                "Eevee",
+                65,
+                45,
+                "Eevee!",
+                "Tackle",
+                "normal"
+            );
+            owen.catch(bulbasaur);
+            milly.catch(eevee);
+
+            const normal = new Battle(
+                owen,
+                milly,
+                owen.party[0],
+                milly.party[0]
+            );
+
+            normal.fight();
+
+            expect(milly.party[0].health).toBe(30);
+        });
+    });
 });

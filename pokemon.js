@@ -105,4 +105,23 @@ function Battle(trainerOne, trainerTwo, pokemonOne, pokemonTwo) {
     this.pokemonOne = pokemonOne;
     this.pokemonTwo = pokemonTwo;
 }
+
+Battle.prototype.fight = function () {
+    const superEffective = this.pokemonOne.strengths.includes(
+        this.pokemonTwo.type
+    );
+    const notVeryEffective = this.pokemonOne.weaknesses.includes(
+        this.pokemonTwo.type
+    );
+
+    if (superEffective) {
+        this.pokemonTwo.health -= Math.ceil(this.pokemonOne.damage * 1.25);
+    } else if (notVeryEffective) {
+        console.log("heres");
+        this.pokemonTwo.health -= Math.ceil(this.pokemonOne.damage * 0.75);
+    } else {
+        this.pokemonTwo.health -= this.pokemonOne.damage;
+    }
+};
+
 module.exports = { Pokemon, Trainer, Battle };
