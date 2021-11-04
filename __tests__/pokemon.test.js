@@ -143,4 +143,21 @@ describe("Battle", () => {
         const newBattle = new Battle(owen, milly);
         expect(newBattle.trainerTwo).toBe(milly);
     });
+
+    test("Created with pokemonOne property.", () => {
+        const owen = new Trainer("Owen");
+        const milly = new Trainer("Milly");
+        const bulbasaur = new Pokemon(
+            "Bulbasaur",
+            80,
+            35,
+            "bulba",
+            "Vine Whip",
+            "grass"
+        );
+        owen.catch(bulbasaur);
+
+        const newBattle = new Battle(owen, milly, owen.party[0]);
+        expect(newBattle.pokemonOne).toBe(owen.party[0]);
+    });
 });
