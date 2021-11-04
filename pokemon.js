@@ -11,6 +11,9 @@ Pokemon.prototype.talk = function () {
     return this.sound;
 };
 
+Pokemon.prototype.moves = function () {
+    return this.move;
+};
 const types = {
     normal: { strengths: [] },
     fire: { strengths: ["grass", "ice", "bug", "steel"] },

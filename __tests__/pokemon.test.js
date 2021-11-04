@@ -66,4 +66,16 @@ describe("Pokemon", () => {
         );
         expect(bulbasaur.talk()).toBe("bulba");
     });
+
+    test("talk() returns the pokemon sound.", () => {
+        const bulbasaur = new Pokemon(
+            "Bulbasaur",
+            80,
+            35,
+            "bulba",
+            "Vine Whip",
+            "grass"
+        );
+        expect(bulbasaur.moves()).toBe("Vine Whip");
+    });
 });
