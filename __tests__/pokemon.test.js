@@ -160,4 +160,35 @@ describe("Battle", () => {
         const newBattle = new Battle(owen, milly, owen.party[0]);
         expect(newBattle.pokemonOne).toBe(owen.party[0]);
     });
+
+    test("Created with pokemonTwo property.", () => {
+        const owen = new Trainer("Owen");
+        const milly = new Trainer("Milly");
+        const bulbasaur = new Pokemon(
+            "Bulbasaur",
+            80,
+            35,
+            "bulba",
+            "Vine Whip",
+            "grass"
+        );
+        const altaria = new Pokemon(
+            "Altaria",
+            290,
+            85,
+            "Altaria!",
+            "Sky Attack",
+            "flying"
+        );
+        owen.catch(bulbasaur);
+        milly.catch(altaria);
+
+        const newBattle = new Battle(
+            owen,
+            milly,
+            owen.party[0],
+            milly.party[0]
+        );
+        expect(newBattle.pokemonTwo).toBe(milly.party[0]);
+    });
 });
