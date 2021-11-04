@@ -38,6 +38,8 @@ const types = {
 
 //-------------------------TRAINER-------------------------\\
 
-function Trainer() {}
+function Trainer(name) {
+    this.name = name;
+}
 
 module.exports = { Pokemon, Trainer };

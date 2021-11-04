@@ -85,4 +85,9 @@ describe("Trainer", () => {
         const owen = new Trainer();
         expect(owen).toBeInstanceOf(Trainer);
     });
+
+    test("Created with name property.", () => {
+        const owen = new Trainer("Owen");
+        expect(owen.name).toBe("Owen");
+    });
 });
