@@ -1,4 +1,4 @@
-const { Pokemon, Trainer } = require("../pokemon.js");
+const { Pokemon, Trainer, Battle } = require("../pokemon.js");
 describe("Pokemon", () => {
     test("Should create a new instance of Pokemon.", () => {
         const newPokemon = new Pokemon();
@@ -120,5 +120,12 @@ describe("Trainer", () => {
         owen.catch(bulbasaur);
 
         expect(owen.party[0]).toEqual(bulbasaur);
+    });
+});
+
+describe("Battle", () => {
+    test("Should create a new instance of Battle.", () => {
+        const newBattle = new Battle();
+        expect(newBattle).toBeInstanceOf(Battle);
     });
 });

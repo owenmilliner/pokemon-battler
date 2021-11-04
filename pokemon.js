@@ -98,4 +98,6 @@ Trainer.prototype.catch = function (pokemon) {
     }
 };
 
-module.exports = { Pokemon, Trainer };
+//-------------------------BATTLE-------------------------\\
+function Battle() {}
+module.exports = { Pokemon, Trainer, Battle };
