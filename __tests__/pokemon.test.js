@@ -36,5 +36,17 @@ describe("Pokemon", () => {
             );
             expect(newPokemon.move).toBe("Vine Whip");
         });
+
+        test("Created with type property.", () => {
+            const newPokemon = new Pokemon(
+                "Bulbasaur",
+                80,
+                35,
+                "bulba",
+                "Vine Whip",
+                "Grass"
+            );
+            expect(newPokemon.type).toBe("Grass");
+        });
     });
 });
