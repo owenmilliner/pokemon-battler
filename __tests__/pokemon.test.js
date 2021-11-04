@@ -105,4 +105,20 @@ describe("Trainer", () => {
         const owen = new Trainer("Owen");
         expect(owen.maxPartySize).toEqual(6);
     });
+
+    test("catch() adds the caught pokemon to the trainer's party.", () => {
+        const owen = new Trainer("Owen");
+        const bulbasaur = new Pokemon(
+            "Bulbasaur",
+            80,
+            35,
+            "bulba",
+            "Vine Whip",
+            "grass"
+        );
+
+        owen.catch(bulbasaur);
+
+        expect(owen.party[0]).toEqual(bulbasaur);
+    });
 });

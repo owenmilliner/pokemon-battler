@@ -45,4 +45,10 @@ function Trainer(name) {
     this.maxPartySize = 6;
 }
 
+Trainer.prototype.catch = function (pokemon) {
+    if (this.pokemonCount < this.maxPartySize) {
+        this.party.push(pokemon);
+    }
+};
+
 module.exports = { Pokemon, Trainer };
