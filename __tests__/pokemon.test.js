@@ -44,14 +44,14 @@ describe("Pokemon", () => {
                 35,
                 "bulba",
                 "Vine Whip",
-                "Grass"
+                "grass"
             );
-            expect(bulbasaur.type).toBe("Grass");
+            expect(bulbasaur.type).toBe("grass");
         });
 
         test("Created with default type property set.", () => {
             const eevee = new Pokemon("Eevee", 65, 45, "Eevee!", "Tackle");
-            expect(eevee.type).toBe("Normal");
+            expect(eevee.type).toBe("normal");
         });
     });
 });
