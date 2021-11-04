@@ -6,6 +6,8 @@ function Pokemon(name, health, damage, sound, move, type = "normal") {
     this.sound = sound;
     this.move = move;
     this.type = type;
+    this.strengths = types[type].strengths;
+    this.weaknesses = types[type].weaknesses;
 }
 
 Pokemon.prototype.talk = function () {
@@ -17,23 +19,68 @@ Pokemon.prototype.moves = function () {
 };
 const types = {
     normal: { strengths: [] },
-    fire: { strengths: ["grass", "ice", "bug", "steel"] },
-    water: { strengths: ["fire", "ground", "rock"] },
-    electric: { strengths: ["water", "flying"] },
-    grass: { strengths: ["water", "ground", "rock"] },
-    ice: { strengths: ["grass", "ground", "flying", "dragon"] },
-    fighting: { strengths: ["normal", "ice", "rock", "dark", "steel"] },
-    poison: { strengths: ["grass", "fairy"] },
-    ground: { strengths: ["fire", "electric", "poison", "rock", "steel"] },
-    flying: { strengths: ["grass", "fighting", "bug"] },
-    psychic: { strengths: ["fighting", "poison"] },
-    bug: { strengths: ["grass", "psychic", "dark"] },
-    rock: { strengths: ["fire", "ice", "flying", "rock"] },
-    ghost: { strengths: ["psychic", "ghost"] },
-    dragon: { strengths: ["dragon"] },
-    dark: { strengths: ["psychic", "ghost"] },
-    steel: { strengths: ["ice", "rock", "fairy"] },
-    fairy: { strengths: ["fighting", "dragon", "dark"] },
+    fire: {
+        strengths: ["grass", "ice", "bug", "steel"],
+        weaknesses: ["water", "ground", "rock"],
+    },
+    water: {
+        strengths: ["fire", "ground", "rock"],
+        weaknesses: ["electric", "grass"],
+    },
+    electric: {
+        strengths: ["water", "flying"],
+        weaknesses: ["ground"],
+    },
+    grass: {
+        strengths: ["water", "ground", "rock"],
+        weaknesses: ["fire", "ice", "poison", "flying", "bug"],
+    },
+    ice: {
+        strengths: ["grass", "ground", "flying", "dragon"],
+        weaknesses: ["fire", "fighting", "rock", "steel"],
+    },
+    fighting: {
+        strengths: ["normal", "ice", "rock", "dark", "steel"],
+        weaknesses: ["flying", "psychic", "fairy"],
+    },
+    poison: {
+        strengths: ["grass", "fairy"],
+        weaknesses: ["ground", "psychic"],
+    },
+    ground: {
+        strengths: ["fire", "electric", "poison", "rock", "steel"],
+        weaknesses: ["water", "grass", "ice"],
+    },
+    flying: {
+        strengths: ["grass", "fighting", "bug"],
+        weaknesses: ["electric", "ice", "rock"],
+    },
+    psychic: {
+        strengths: ["fighting", "poison"],
+        weaknesses: ["bug", "ghost", "dark"],
+    },
+    bug: {
+        strengths: ["grass", "psychic", "dark"],
+        weaknesses: ["fire", "flying", "rock"],
+    },
+    rock: {
+        strengths: ["fire", "ice", "flying", "rock"],
+        weaknesses: ["water", "grass", "fighting", "ground", "steel"],
+    },
+    ghost: { strengths: ["psychic", "ghost"], weaknesses: ["ghost", "dark"] },
+    dragon: { strengths: ["dragon"], weaknesses: ["ice", "dragon", "fairy"] },
+    dark: {
+        strengths: ["psychic", "ghost"],
+        weaknesses: ["fighting", "bug", "fairy"],
+    },
+    steel: {
+        strengths: ["ice", "rock", "fairy"],
+        weaknesses: ["fire", "fighting", "ground"],
+    },
+    fairy: {
+        strengths: ["fighting", "dragon", "dark"],
+        weaknesses: ["poison", "steel"],
+    },
 };
 
 //-------------------------TRAINER-------------------------\\
