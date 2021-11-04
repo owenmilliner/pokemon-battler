@@ -40,6 +40,7 @@ const types = {
 
 function Trainer(name) {
     this.name = name;
+    this.party = [];
 }
 
 module.exports = { Pokemon, Trainer };

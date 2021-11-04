@@ -90,4 +90,9 @@ describe("Trainer", () => {
         const owen = new Trainer("Owen");
         expect(owen.name).toBe("Owen");
     });
+
+    test("Created with pokemon storage/party property.", () => {
+        const owen = new Trainer("Owen");
+        expect(owen.party).toEqual([]);
+    });
 });
