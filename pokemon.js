@@ -7,6 +7,10 @@ function Pokemon(name, health, damage, sound, move, type = "normal") {
     this.type = type;
 }
 
+Pokemon.prototype.talk = function () {
+    return this.sound;
+};
+
 const types = {
     normal: { strengths: [] },
     fire: { strengths: ["grass", "ice", "bug", "steel"] },
