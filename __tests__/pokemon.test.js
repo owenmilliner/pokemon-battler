@@ -4,4 +4,11 @@ describe("Pokemon", () => {
         const newPokemon = new Pokemon();
         expect(newPokemon).toBeInstanceOf(Pokemon);
     });
+
+    describe("Pokemon Properties", () => {
+        test("Created with name property.", () => {
+            const newPokemon = new Pokemon("Bulbasaur");
+            expect(newPokemon.name).toBe("Bulbasaur");
+        });
+    });
 });
