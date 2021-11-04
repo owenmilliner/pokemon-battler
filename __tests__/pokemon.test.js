@@ -15,5 +15,10 @@ describe("Pokemon", () => {
             const newPokemon = new Pokemon("Bulbasaur", 80);
             expect(newPokemon.health).toBe(80);
         });
+
+        test("Created with damage property.", () => {
+            const newPokemon = new Pokemon("Bulbasaur", 80, 35);
+            expect(newPokemon.damage).toBe(35);
+        });
     });
 });
