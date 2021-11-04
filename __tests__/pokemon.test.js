@@ -95,4 +95,9 @@ describe("Trainer", () => {
         const owen = new Trainer("Owen");
         expect(owen.party).toEqual([]);
     });
+
+    test("Created with pokemon count property.", () => {
+        const owen = new Trainer("Owen");
+        expect(owen.pokemonCount).toEqual(0);
+    });
 });

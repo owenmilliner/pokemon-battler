@@ -41,6 +41,7 @@ const types = {
 function Trainer(name) {
     this.name = name;
     this.party = [];
+    this.pokemonCount = 0;
 }
 
 module.exports = { Pokemon, Trainer };
