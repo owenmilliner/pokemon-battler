@@ -99,7 +99,8 @@ Trainer.prototype.catch = function (pokemon) {
 };
 
 //-------------------------BATTLE-------------------------\\
-function Battle(trainerOne) {
+function Battle(trainerOne, trainerTwo) {
     this.trainerOne = trainerOne;
+    this.trainerTwo = trainerTwo;
 }
 module.exports = { Pokemon, Trainer, Battle };

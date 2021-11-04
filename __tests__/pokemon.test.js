@@ -135,4 +135,12 @@ describe("Battle", () => {
         const newBattle = new Battle(owen);
         expect(newBattle.trainerOne).toBe(owen);
     });
+
+    test("Created with trainerTwo property.", () => {
+        const owen = new Trainer("Owen");
+        const milly = new Trainer("Milly");
+
+        const newBattle = new Battle(owen, milly);
+        expect(newBattle.trainerTwo).toBe(milly);
+    });
 });
