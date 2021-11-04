@@ -20,5 +20,10 @@ describe("Pokemon", () => {
             const newPokemon = new Pokemon("Bulbasaur", 80, 35);
             expect(newPokemon.damage).toBe(35);
         });
+
+        test("Created with sound property.", () => {
+            const newPokemon = new Pokemon("Bulbasaur", 80, 35, "bulba");
+            expect(newPokemon.sound).toBe("bulba");
+        });
     });
 });
